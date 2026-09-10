@@ -19,7 +19,7 @@ pipeline {
                         -v "%WORKSPACE%:${CONTAINER_WORKDIR}" ^
                         -w ${CONTAINER_WORKDIR} ^
                         ${IMAGE_NAME} ^
-                        -c "python3 -m venv venv && . venv/bin/activate && pip install -r requirements.txt && pytest -v --html=reports/report.html --self-contained-html --maxfail=1 --disable-warnings"
+                        -c "python3 -m venv venv && . venv/bin/activate && pip install -r requirements.txt && python3 -m pytest -v --html=reports/report.html --self-contained-html --maxfail=1 --disable-warnings"
                     """
                 }
             }
